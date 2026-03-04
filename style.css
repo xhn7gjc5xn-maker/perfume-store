@@ -42,7 +42,7 @@ h1.site-title .owner {
   100% { filter: drop-shadow(0 0 3px #ff0080); }
 }
 
-/* Карточки товаров */
+/* Карточки товаров - одинаковый размер */
 .product-container {
   display: flex;
   justify-content: center;
@@ -57,15 +57,19 @@ h1.site-title .owner {
   backdrop-filter: blur(8px);
   border-radius: 20px;
   padding: 20px;
-  max-width: 300px;
-  flex: 1 1 300px;
+  width: 300px;        /* фиксированная ширина */
+  height: 480px;       /* фиксированная высота */
   animation: fadeIn 1s ease;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .product-image {
   width: 100%;
-  max-width: 250px;
+  height: 200px;       /* фиксированная высота изображения */
+  object-fit: contain;  /* сохраняет пропорции, вписывая в область */
   border-radius: 12px;
   margin-bottom: 15px;
   transition: 0.4s;
@@ -177,10 +181,11 @@ input {
   }
 
   .product-card {
-    max-width: 90%;
+    width: 90%;
+    height: auto;
   }
 
   .product-image {
-    max-width: 80%;
+    height: 200px;
   }
 }
