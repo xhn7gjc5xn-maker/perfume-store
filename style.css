@@ -1,8 +1,8 @@
-/* Основной фон и шрифты */
+/* Фон и шрифты */
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
-  background: linear-gradient(135deg, #ff3cac, #784ba0);
+  background: linear-gradient(135deg, #2b003b, #5c007d);
   color: white;
 }
 
@@ -13,33 +13,27 @@ h1.site-title {
   font-family: 'Playfair Display', serif;
   font-size: 3rem;
   letter-spacing: 2px;
-  background: linear-gradient(90deg, #ff0080, #ff80c0);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
-}
-
-h1.site-title .accent {
-  font-weight: 700;
+  color: #fff;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
 }
 
 h1.site-title .owner {
   font-style: italic;
+  color: #ff66aa;
 }
 
 /* Карточки товаров */
 .product-container {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  gap: 30px;
   flex-wrap: wrap;
+  gap: 30px;
   padding: 40px;
 }
 
 .product-card {
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(10px);
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);
   border-radius: 20px;
   padding: 20px;
   width: 300px;
@@ -48,13 +42,13 @@ h1.site-title .owner {
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .product-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(255,255,255,0.3);
 }
 
 .product-image {
@@ -62,25 +56,26 @@ h1.site-title .owner {
   height: 200px;
   object-fit: contain;
   border-radius: 12px;
+  border: 2px solid rgba(255,255,255,0.3);
   margin-bottom: 15px;
-  transition: transform 0.4s, box-shadow 0.4s;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .product-image:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+  transform: scale(1.08);
+  box-shadow: 0 6px 20px rgba(255,255,255,0.5);
 }
 
 /* Кнопки объема */
 .volume-switch button {
   margin: 5px;
   padding: 8px 12px;
-  cursor: pointer;
   border-radius: 8px;
   border: none;
   background: rgba(255,255,255,0.2);
   color: white;
-  transition: 0.3s all;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
 .volume-switch button:hover {
@@ -88,10 +83,10 @@ h1.site-title .owner {
 }
 
 .volume-switch button.active-volume {
-  background: linear-gradient(90deg, #ff0080, #ff80c0);
+  background: linear-gradient(90deg, #ff66aa, #ff33cc);
   color: #fff;
   font-weight: bold;
-  box-shadow: 0 0 10px #ff66aa;
+  box-shadow: 0 0 12px #ff66aa;
 }
 
 .stock {
@@ -117,7 +112,7 @@ h1.site-title .owner {
 
 .buy-btn { 
   background: linear-gradient(90deg, #ff0080, #ff80c0); 
-  box-shadow: 0 2px 10px rgba(255,0,128,0.5);
+  box-shadow: 0 2px 12px rgba(255,0,128,0.5);
 }
 
 .buy-btn:hover { 
@@ -127,7 +122,7 @@ h1.site-title .owner {
 
 .tg-btn { 
   background: #0088cc; 
-  box-shadow: 0 2px 10px rgba(0,136,204,0.5);
+  box-shadow: 0 2px 12px rgba(0,136,204,0.5);
 }
 
 .tg-btn:hover { 
@@ -141,7 +136,7 @@ h1.site-title .owner {
   position: fixed;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.85);
   top: 0;
   left: 0;
   z-index: 999;
@@ -168,12 +163,6 @@ input {
   float: right;
   font-size: 28px;
   cursor: pointer;
-}
-
-/* Появление карточек */
-@keyframes fadeIn {
-  from {opacity: 0; transform: translateY(15px);}
-  to {opacity: 1; transform: translateY(0);}
 }
 
 /* Адаптив */
