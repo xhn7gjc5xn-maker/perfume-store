@@ -41,10 +41,12 @@ function sendOrder() {
 
   let message = `Заказ ${products[selectedProduct].name}\nОбъем: ${products[selectedProduct].volume} мл\nЦена: €${products[selectedProduct].price}\nИмя: ${name}\nКонтакт: ${contact}`;
 
-  let url = `https://t.me/YOUR_USERNAME?text=${encodeURIComponent(message)}`;
+  // Ссылка на Telegram Марии
+  let url = `https://t.me/stankevichmaria?text=${encodeURIComponent(message)}`;
   window.open(url, "_blank");
 }
 
 function directTelegram() {
-  window.open("https://t.me/YOUR_USERNAME", "_blank");
+  // Прямая ссылка на Telegram Марии
+  window.open("https://t.me/stankevichmaria", "_blank");
 }
