@@ -1,15 +1,15 @@
 let products = {
-  parfum1: { volume: 50, price: 79, stockId: "stockCount-parfum1" },
-  parfum2: { volume: 50, price: 69, stockId: "stockCount-parfum2" }
+  parfum1: { volume: 50, price: 79 },
+  parfum2: { volume: 50, price: 69 }
 };
 
 let selectedProduct = "";
 
-function selectVolume(product, v, p) {
-  products[product].volume = v;
-  products[product].price = p;
-  document.getElementById("selectedVolume").innerText = v;
-  document.getElementById("selectedPrice").innerText = p;
+function selectVolume(product, vol, pr) {
+  products[product].volume = vol;
+  products[product].price = pr;
+  document.getElementById("selectedVolume").innerText = vol;
+  document.getElementById("selectedPrice").innerText = pr;
 }
 
 function openModal(product) {
@@ -28,7 +28,6 @@ function sendOrder() {
   let contact = document.getElementById("contact").value;
 
   let message = `Заказ ${selectedProduct}\nОбъем: ${products[selectedProduct].volume} мл\nЦена: €${products[selectedProduct].price}\nИмя: ${name}\nКонтакт: ${contact}`;
-
   let url = `https://t.me/YOUR_USERNAME?text=${encodeURIComponent(message)}`;
   window.open(url, "_blank");
 }
