@@ -28,7 +28,7 @@ h1.site-title .owner {
   font-style: italic;
 }
 
-/* Колебание заголовка */
+/* Плавное колебание заголовка */
 @keyframes floatTitle {
   0% { transform: translateY(0px) scale(1); }
   50% { transform: translateY(-8px) scale(1.05); }
@@ -42,7 +42,7 @@ h1.site-title .owner {
   100% { filter: drop-shadow(0 0 3px #ff0080); }
 }
 
-/* Карточки */
+/* Карточки товаров */
 .product-container {
   display: flex;
   justify-content: center;
@@ -84,11 +84,19 @@ h1.site-title .owner {
   border: none;
   background: rgba(255,255,255,0.2);
   color: white;
-  transition: 0.3s;
+  transition: 0.3s all;
 }
 
 .volume-switch button:hover {
   background: rgba(255,255,255,0.35);
+}
+
+/* Подсветка выбранного объема */
+.volume-switch button.active-volume {
+  background: #ff0080;
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 0 0 10px #ff66aa;
 }
 
 .stock {
@@ -112,23 +120,13 @@ h1.site-title .owner {
   transition: 0.3s;
 }
 
-.buy-btn {
-  background: #ff0080;
-}
+.buy-btn { background: #ff0080; }
+.buy-btn:hover { background: #e60073; }
 
-.buy-btn:hover {
-  background: #e60073;
-}
+.tg-btn { background: #0088cc; }
+.tg-btn:hover { background: #0077aa; }
 
-.tg-btn {
-  background: #0088cc;
-}
-
-.tg-btn:hover {
-  background: #0077aa;
-}
-
-/* Модалка */
+/* Модальное окно */
 .modal {
   display: none;
   position: fixed;
@@ -163,6 +161,7 @@ input {
   cursor: pointer;
 }
 
+/* Появление карточек */
 @keyframes fadeIn {
   from {opacity: 0; transform: translateY(15px);}
   to {opacity: 1; transform: translateY(0);}
