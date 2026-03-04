@@ -1,80 +1,196 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Élégance by Maria</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
+/* Основной фон и шрифты */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #ff3cac, #784ba0);
+  color: white;
+}
 
-<h1 class="site-title">
-  <span class="accent">Él</span>égance by <span class="owner">Maria</span>
-</h1>
+/* Заголовок сайта */
+h1.site-title {
+  text-align: center;
+  margin: 40px 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #ff0080, #ff80c0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+}
 
-<section class="product-container">
+h1.site-title .accent {
+  font-weight: 700;
+}
 
-  <!-- Parfum1 -->
-  <div class="product-card">
-    <img src="images/parfum1.jpg" class="product-image">
-    <div class="product-info">
-      <h2>Parfum1</h2>
-      <p>Глубокий, насыщенный аромат с древесными и восточными нотами. Подходит для вечерних мероприятий.</p>
+h1.site-title .owner {
+  font-style: italic;
+}
 
-      <div class="volume-switch">
-        <button onclick="selectVolume('parfum1',50,79,this)">50 мл — €79</button>
-        <button onclick="selectVolume('parfum1',100,119,this)">100 мл — €119</button>
-      </div>
+/* Карточки товаров */
+.product-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding: 40px;
+}
 
-      <div class="stock">Осталось: <span id="stock-parfum1">12</span> шт.</div>
+.product-card {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 20px;
+  width: 300px;
+  height: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
 
-      <div class="buttons">
-        <button class="buy-btn" onclick="openModal('parfum1')">Заказать</button>
-        <button class="tg-btn" onclick="directTelegram()">Написать в Telegram</button>
-      </div>
-    </div>
-  </div>
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
 
-  <!-- Parfum2 -->
-  <div class="product-card">
-    <img src="images/parfum2.jpg" class="product-image">
-    <div class="product-info">
-      <h2>Parfum2</h2>
-      <p>Светлый цветочный аромат с нотами цитруса и ванили. Лёгкий и свежий, идеально для дневного использования.</p>
+.product-image {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  transition: transform 0.4s, box-shadow 0.4s;
+}
 
-      <div class="volume-switch">
-        <button onclick="selectVolume('parfum2',50,69,this)">50 мл — €69</button>
-        <button onclick="selectVolume('parfum2',100,109,this)">100 мл — €109</button>
-      </div>
+.product-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+}
 
-      <div class="stock">Осталось: <span id="stock-parfum2">15</span> шт.</div>
+/* Кнопки объема */
+.volume-switch button {
+  margin: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255,255,255,0.2);
+  color: white;
+  transition: 0.3s all;
+}
 
-      <div class="buttons">
-        <button class="buy-btn" onclick="openModal('parfum2')">Заказать</button>
-        <button class="tg-btn" onclick="directTelegram()">Написать в Telegram</button>
-      </div>
-    </div>
-  </div>
+.volume-switch button:hover {
+  background: rgba(255,255,255,0.35);
+}
 
-</section>
+.volume-switch button.active-volume {
+  background: linear-gradient(90deg, #ff0080, #ff80c0);
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 0 0 10px #ff66aa;
+}
 
-<!-- Модальное окно -->
-<div id="modal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <h2>Оформление заказа</h2>
+.stock {
+  margin-top: 10px;
+  font-weight: bold;
+}
 
-    <p>Товар: <span id="selectedProductName"></span></p>
-    <p>Объем: <span id="selectedVolume"></span> мл</p>
-    <p>Цена: €<span id="selectedPrice"></span></p>
+.buttons {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
 
-    <input type="text" id="name" placeholder="Ваше имя">
-    <input type="text" id="contact" placeholder="Телефон или @username">
+.buy-btn, .tg-btn {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
 
-    <button onclick="sendOrder()">Отправить заказ</button>
-  </div>
-</div>
+.buy-btn { 
+  background: linear-gradient(90deg, #ff0080, #ff80c0); 
+  box-shadow: 0 2px 10px rgba(255,0,128,0.5);
+}
 
-<script src="script.js"></script>
-</body>
-</html>
+.buy-btn:hover { 
+  background: linear-gradient(90deg, #ff66aa, #ffb3d9); 
+  box-shadow: 0 4px 15px rgba(255,0,128,0.6);
+}
+
+.tg-btn { 
+  background: #0088cc; 
+  box-shadow: 0 2px 10px rgba(0,136,204,0.5);
+}
+
+.tg-btn:hover { 
+  background: #00aadd; 
+  box-shadow: 0 4px 15px rgba(0,136,204,0.6);
+}
+
+/* Модальное окно */
+.modal {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+.modal-content {
+  background: #111;
+  padding: 25px;
+  width: 320px;
+  max-width: 90%;
+  margin: 8% auto;
+  border-radius: 15px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: none;
+}
+
+.close {
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* Появление карточек */
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(15px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+/* Адаптив */
+@media (max-width: 700px) {
+  .product-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .product-card {
+    width: 90%;
+    height: auto;
+  }
+
+  .product-image {
+    height: 200px;
+  }
+}
