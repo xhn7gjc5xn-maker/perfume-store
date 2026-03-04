@@ -5,10 +5,18 @@ let products = {
 
 let selectedProduct = "parfum1";
 
-function selectVolume(product, v, p) {
+function selectVolume(product, v, p, button) {
   products[product].volume = v;
   products[product].price = p;
 
+  // Убираем подсветку со всех кнопок этого продукта
+  let buttons = button.parentElement.querySelectorAll('button');
+  buttons.forEach(b => b.classList.remove('active-volume'));
+
+  // Подсвечиваем выбранную кнопку
+  button.classList.add('active-volume');
+
+  // Обновляем модалку, если она открыта
   if (selectedProduct === product && document.getElementById("modal").style.display === "block") {
     document.getElementById("selectedVolume").innerText = v;
     document.getElementById("selectedPrice").innerText = p;
