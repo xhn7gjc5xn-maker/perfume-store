@@ -8,22 +8,24 @@ body {
 .product-container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding: 40px;
 }
 
 .product-card {
-  display: flex;
   background: rgba(255,255,255,0.1);
   backdrop-filter: blur(10px);
   border-radius: 20px;
   padding: 30px;
-  gap: 40px;
+  max-width: 350px;
+  flex: 0 0 auto;
   animation: fadeIn 1s ease;
 }
 
 .product-image {
-  width: 300px;
+  width: 100%;
   border-radius: 15px;
   transition: 0.4s;
 }
@@ -72,6 +74,8 @@ body {
   height: 100%;
   background: rgba(0,0,0,0.8);
   top: 0;
+  left: 0;
+  z-index: 999;
 }
 
 .modal-content {
@@ -86,6 +90,12 @@ input {
   width: 100%;
   padding: 10px;
   margin-top: 10px;
+}
+
+.close {
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
 }
 
 @keyframes fadeIn {
