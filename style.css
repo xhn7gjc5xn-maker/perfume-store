@@ -17,8 +17,8 @@ h1.site-title {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 30px; /* расстояние между карточками */
-  flex-wrap: wrap; /* чтобы карточки переносились на маленьких экранах */
+  gap: 30px;
+  flex-wrap: wrap;
   padding: 40px;
 }
 
@@ -27,15 +27,15 @@ h1.site-title {
   backdrop-filter: blur(8px);
   border-radius: 20px;
   padding: 20px;
-  max-width: 300px; /* ограничиваем ширину карточки */
-  flex: 1 1 300px; /* гибкая ширина для адаптива */
+  max-width: 300px;
+  flex: 1 1 300px;
   animation: fadeIn 1s ease;
   text-align: center;
 }
 
 .product-image {
   width: 100%;
-  max-width: 250px; /* уменьшаем размер картинки */
+  max-width: 250px;
   border-radius: 12px;
   margin-bottom: 15px;
   transition: 0.4s;
@@ -136,7 +136,7 @@ input {
   to {opacity: 1; transform: translateY(0);}
 }
 
-/* Адаптив для мобильных экранов */
+/* Адаптив */
 @media (max-width: 700px) {
   .product-container {
     flex-direction: column;
