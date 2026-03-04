@@ -9,14 +9,10 @@ function selectVolume(product, v, p, button) {
   products[product].volume = v;
   products[product].price = p;
 
-  // Убираем подсветку со всех кнопок этого продукта
   let buttons = button.parentElement.querySelectorAll('button');
   buttons.forEach(b => b.classList.remove('active-volume'));
-
-  // Подсвечиваем выбранную кнопку
   button.classList.add('active-volume');
 
-  // Обновляем модалку, если она открыта
   if (selectedProduct === product && document.getElementById("modal").style.display === "block") {
     document.getElementById("selectedVolume").innerText = v;
     document.getElementById("selectedPrice").innerText = p;
@@ -41,12 +37,10 @@ function sendOrder() {
 
   let message = `Заказ ${products[selectedProduct].name}\nОбъем: ${products[selectedProduct].volume} мл\nЦена: €${products[selectedProduct].price}\nИмя: ${name}\nКонтакт: ${contact}`;
 
-  // Ссылка на Telegram Марии
   let url = `https://t.me/stankevichmaria?text=${encodeURIComponent(message)}`;
   window.open(url, "_blank");
 }
 
 function directTelegram() {
-  // Прямая ссылка на Telegram Марии
   window.open("https://t.me/stankevichmaria", "_blank");
 }
