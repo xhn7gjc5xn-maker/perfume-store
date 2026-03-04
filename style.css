@@ -1,3 +1,4 @@
+/* Основной фон и шрифты */
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
@@ -5,14 +6,43 @@ body {
   color: white;
 }
 
+/* Анимированный заголовок сайта */
 h1.site-title {
   text-align: center;
-  margin: 20px 0;
-  font-size: 2.2rem;
-  font-family: 'Georgia', serif;
-  letter-spacing: 1px;
+  margin: 40px 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  letter-spacing: 2px;
+  color: #fff;
+  animation: floatTitle 3s ease-in-out infinite alternate,
+             colorShift 4s ease-in-out infinite alternate;
 }
 
+h1.site-title .accent {
+  color: #ff0080;
+  font-weight: 700;
+}
+
+h1.site-title .owner {
+  color: #f0e6ff;
+  font-style: italic;
+}
+
+/* Колебание заголовка */
+@keyframes floatTitle {
+  0% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-8px) scale(1.05); }
+  100% { transform: translateY(0px) scale(1); }
+}
+
+/* Перелив тени */
+@keyframes colorShift {
+  0% { filter: drop-shadow(0 0 3px #ff0080); }
+  50% { filter: drop-shadow(0 0 10px #ff80c0); }
+  100% { filter: drop-shadow(0 0 3px #ff0080); }
+}
+
+/* Карточки */
 .product-container {
   display: flex;
   justify-content: center;
@@ -45,6 +75,7 @@ h1.site-title {
   transform: scale(1.05);
 }
 
+/* Кнопки объема */
 .volume-switch button {
   margin: 5px;
   padding: 8px 12px;
@@ -97,6 +128,7 @@ h1.site-title {
   background: #0077aa;
 }
 
+/* Модалка */
 .modal {
   display: none;
   position: fixed;
