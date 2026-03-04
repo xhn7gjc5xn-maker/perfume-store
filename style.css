@@ -6,7 +6,7 @@ body {
   color: white;
 }
 
-/* Анимированный заголовок сайта */
+/* Заголовок сайта без анимации */
 h1.site-title {
   text-align: center;
   margin: 40px 0;
@@ -14,8 +14,6 @@ h1.site-title {
   font-size: 3rem;
   letter-spacing: 2px;
   color: #fff;
-  animation: floatTitle 3s ease-in-out infinite alternate,
-             colorShift 4s ease-in-out infinite alternate;
 }
 
 h1.site-title .accent {
@@ -26,20 +24,6 @@ h1.site-title .accent {
 h1.site-title .owner {
   color: #f0e6ff;
   font-style: italic;
-}
-
-/* Плавное колебание заголовка */
-@keyframes floatTitle {
-  0% { transform: translateY(0px) scale(1); }
-  50% { transform: translateY(-8px) scale(1.05); }
-  100% { transform: translateY(0px) scale(1); }
-}
-
-/* Перелив тени */
-@keyframes colorShift {
-  0% { filter: drop-shadow(0 0 3px #ff0080); }
-  50% { filter: drop-shadow(0 0 10px #ff80c0); }
-  100% { filter: drop-shadow(0 0 3px #ff0080); }
 }
 
 /* Карточки товаров - одинаковый размер */
