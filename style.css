@@ -1,32 +1,43 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
   background: linear-gradient(120deg, #ff3cac, #784ba0);
   color: white;
+}
+
+h1.site-title {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 2.2rem;
+  font-family: 'Georgia', serif;
+  letter-spacing: 1px;
 }
 
 .product-container {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 40px;
-  flex-wrap: wrap;
+  gap: 30px; /* расстояние между карточками */
+  flex-wrap: wrap; /* чтобы карточки переносились на маленьких экранах */
   padding: 40px;
 }
 
 .product-card {
   background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(8px);
   border-radius: 20px;
-  padding: 30px;
-  max-width: 350px;
-  flex: 0 0 auto;
+  padding: 20px;
+  max-width: 300px; /* ограничиваем ширину карточки */
+  flex: 1 1 300px; /* гибкая ширина для адаптива */
   animation: fadeIn 1s ease;
+  text-align: center;
 }
 
 .product-image {
   width: 100%;
-  border-radius: 15px;
+  max-width: 250px; /* уменьшаем размер картинки */
+  border-radius: 12px;
+  margin-bottom: 15px;
   transition: 0.4s;
 }
 
@@ -36,35 +47,54 @@ body {
 
 .volume-switch button {
   margin: 5px;
-  padding: 10px 15px;
+  padding: 8px 12px;
   cursor: pointer;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255,255,255,0.2);
+  color: white;
+  transition: 0.3s;
+}
+
+.volume-switch button:hover {
+  background: rgba(255,255,255,0.35);
 }
 
 .stock {
-  margin-top: 15px;
+  margin-top: 10px;
   font-weight: bold;
 }
 
 .buttons {
-  margin-top: 20px;
+  margin-top: 15px;
   display: flex;
+  justify-content: center;
   gap: 10px;
+}
+
+.buy-btn, .tg-btn {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .buy-btn {
   background: #ff0080;
-  border: none;
-  padding: 12px 20px;
-  color: white;
-  cursor: pointer;
+}
+
+.buy-btn:hover {
+  background: #e60073;
 }
 
 .tg-btn {
   background: #0088cc;
-  border: none;
-  padding: 12px 20px;
-  color: white;
-  cursor: pointer;
+}
+
+.tg-btn:hover {
+  background: #0077aa;
 }
 
 .modal {
@@ -80,9 +110,10 @@ body {
 
 .modal-content {
   background: #111;
-  padding: 30px;
-  width: 350px;
-  margin: 10% auto;
+  padding: 25px;
+  width: 320px;
+  max-width: 90%;
+  margin: 8% auto;
   border-radius: 15px;
 }
 
@@ -90,6 +121,8 @@ input {
   width: 100%;
   padding: 10px;
   margin-top: 10px;
+  border-radius: 8px;
+  border: none;
 }
 
 .close {
@@ -99,6 +132,24 @@ input {
 }
 
 @keyframes fadeIn {
-  from {opacity: 0; transform: translateY(20px);}
+  from {opacity: 0; transform: translateY(15px);}
   to {opacity: 1; transform: translateY(0);}
+}
+
+/* Адаптив для мобильных экранов */
+@media (max-width: 700px) {
+  .product-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .product-card {
+    max-width: 90%;
+  }
+
+  .product-image {
+    max-width: 80%;
+  }
 }
